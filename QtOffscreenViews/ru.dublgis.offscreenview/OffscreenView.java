@@ -1065,7 +1065,8 @@ public abstract class OffscreenView
     public void resizeOffscreenView(final int w, final int h)
     {
         Log.i(TAG, "resizeOffscreenView " + w + "x" + h);
-        synchronized (texture_mutex_) {
+        //! Try to fix freezes on create view + resize calls
+        //synchronized (texture_mutex_) {
             synchronized (view_variables_mutex_) {
                 view_width_ = w;
                 view_height_ = h;
@@ -1073,7 +1074,7 @@ public abstract class OffscreenView
                     rendering_surface_.setNewSize(w, h);
                 }
             }
-        }
+        //}
         runViewAction(new Runnable() {
             @Override
             public void run() {
