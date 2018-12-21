@@ -45,6 +45,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager.LayoutParams;
 import android.widget.PopupWindow;
+import com.sharmproj.Log;
 
 
 /*
@@ -55,7 +56,8 @@ public class KeyboardHeightProvider
     extends PopupWindow
     implements ViewTreeObserver.OnGlobalLayoutListener 
 {
-    public static final String TAG = "Grym/KeyboardHeightProvider";
+    //public static final String TAG = "Grym/KeyboardHeightProvider";
+    public static final String TAG = "mobile_keyboard";
 
     private KeyboardHeightObserver mObserver;
     private View mPopupView;
@@ -111,6 +113,9 @@ public class KeyboardHeightProvider
 
             Rect rect = new Rect();
             mPopupView.getWindowVisibleDisplayFrame(rect);
+
+            Log.d(TAG, "NEW! screenSize: " + screenSize.toString());
+            Log.d(TAG, String.format("NEW! mPopupView rect: left: %d, top: %d, right: %d, bottom: %d, w: %d, h: %d", rect.left, rect.top, rect.right, rect.bottom, rect.width(), rect.height()));
 
             int keyboardHeight = screenSize.y - rect.bottom;
             mObserver.onKeyboardHeightChanged(keyboardHeight);

@@ -175,7 +175,8 @@ public class CellListener {
                             cellInfoGsm.getCellIdentity().getMcc(), // 3-digit Mobile Country Code, 0..999, Integer.MAX_VALUE if unknown
                             cellInfoGsm.getCellIdentity().getMnc(), // 2 or 3-digit Mobile Network Code, 0..999, Integer.MAX_VALUE if unknown
                             cellInfoGsm.getCellSignalStrength().getDbm(), // Get the signal strength as dBm
-                            android.os.Build.VERSION.SDK_INT >= 26 ? cellInfoGsm.getCellSignalStrength().getTimingAdvance() : Integer.MAX_VALUE // Get the GSM timing advance between 0..219 symbols (normally 0..63). Integer.MAX_VALUE is reported when there is no RR connection.
+                            //android.os.Build.VERSION.SDK_INT >= 26 ? cellInfoGsm.getCellSignalStrength().getTimingAdvance() : Integer.MAX_VALUE // Get the GSM timing advance between 0..219 symbols (normally 0..63). Integer.MAX_VALUE is reported when there is no RR connection.
+                            Integer.MAX_VALUE
                     );
                 }
                 if (cellInfo instanceof CellInfoLte) {

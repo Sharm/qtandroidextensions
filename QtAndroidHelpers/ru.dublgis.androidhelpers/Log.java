@@ -1,4 +1,4 @@
-package ru.dublgis.androidhelpers;
+package ru.dublgis.androidhelpers.test;
 
 import java.lang.reflect.Method;
 
