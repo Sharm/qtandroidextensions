@@ -50,6 +50,7 @@ namespace QLocks
 	public:
 		QLockedObject(bool unlockOnSleep);
 		virtual ~QLockedObject();
+		void setUnlockOnSleep(bool isUnlockOnSleep);
 		QLockPointer getLock();
 
 	private:

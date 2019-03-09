@@ -53,6 +53,10 @@ QLockedObject::~QLockedObject()
 	handler_.reset();
 }
 
+void QLockedObject::setUnlockOnSleep(bool isUnlockOnSleep)
+{
+    unlockOnSleep_ = isUnlockOnSleep;
+}
 
 QLockPointer QLockedObject::getLock()
 {
